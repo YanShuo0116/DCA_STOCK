@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHUO美股定期定額投資回測</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- 主頁面 -->
+        <div id="mainPage">
+            <header>
+                <h1>SHUO美股定期定額投資回測</h1>
+                <p class="description">這是一個幫助您分析美股定期定額投資策略的工具</p>
+                <ul class="features-list">
+                    <li>
+                        
+                        <div>
+                            <strong>選擇知名美股及ETF</strong>
+                            <p>提供50支優質美股供您選擇進行回測分析</p>
+                        </div>
+                    </li>
+                    <li>
+                      
+                        <div>
+                            <strong>自訂投資參數</strong>
+                            <p>可自由設定投資起始日期、金額和頻率，模擬真實投資情境</p>
+                        </div>
+                    </li>
+                    <li>
+                    
+                        <div>
+                            <strong>詳細績效分析</strong>
+                            <p>計算投資報酬率、年化報酬等關鍵指標，並提供視覺化圖表</p>
+                        </div>
+                    </li>
+                    <li>
+                   
+                        <div>
+                            <strong>每日自動更新</strong>
+                            <p>數據來源為Yahoo Finance，系統每日自動更新確保資料即時性</p>
+                        </div>
+                    </li>
+                </ul>
+            </header>
+            
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="搜尋股票代號、名稱或產業...">
+            </div>
+            
+            <div id="stockGrid" class="stock-grid">
+                <!-- 股票卡片將由JavaScript動態生成 -->
+            </div>
+        </div>
+
+        <!-- 回測頁面 -->
+        <div id="backtestPage" class="hidden">
+            <div class="backtest-header">
+                <button class="back-button" onclick="showMainPage()">返回</button>
+                <div>
+                    <img id="selectedStockIcon" src="" alt="Stock Icon" style="width: 48px; height: 48px; border-radius: 50%;">
+                    <h2 id="selectedStockName"></h2>
+                </div>
+            </div>
+            
+            <div id="selectedStockDescription" class="company-info"></div>
+            
+            <div class="backtest-content">
+                <div class="backtest-params">
+                    <div class="param-group">
+                        <label>投資期間</label>
+                        <input type="date" id="startDate">
+                        <input type="date" id="endDate">
+                    </div>
+                    <div class="param-group">
+                        <label>每月投資金額</label>
+                        <input type="number" id="monthlyInvestment" value="1000" min="100" step="100">
+                    </div>
+                    <div class="param-group">
+                        <label>每月投資日期（可複選，金額將平均分配）</label>
+                        <div class="investment-days">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="investmentDay" value="1"> 1日
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="investmentDay" value="5"> 5日
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="investmentDay" value="10"> 10日
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="investmentDay" value="15"> 15日
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="investmentDay" value="20"> 20日
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="investmentDay" value="25"> 25日
+                            </label>
+                        </div>
+                    </div>
+                    <div class="param-group">
+                        <label>假日處理方式</label>
+                        <select id="holidayHandling">
+                            <option value="skip">跳過</option>
+                            <option value="next">順延至下一個交易日</option>
+                        </select>
+                    </div>
+                    <div class="param-group">
+                        <label>手續費率 (%)</label>
+                        <input type="number" id="feeRate" value="0.1" step="0.1" min="0" max="3">
+                    </div>
+                    <br>
+                    <button id="calculateBtn" class="calculate-button" onclick="calculatePortfolioPerformance()">開始回測</button>
+                    
+                </div>
+                
+                <div id="resultsSection" class="hidden">
+                    <div class="results-grid">
+                        <div class="result-item">
+                            <label>總投資金額</label>
+                            <span id="totalInvestment">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <label>目前價值</label>
+                            <span id="currentValue">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <label>總損益</label>
+                            <span id="totalProfitLoss">$0</span>
+                        </div>
+                        <div class="result-item">
+                            <label>總報酬率</label>
+                            <span id="totalReturn">0%</span>
+                        </div>
+                        <div class="result-item">
+                            <label>年化報酬率</label>
+                            <span id="annualReturn">0%</span>
+                        </div>
+                        <div class="result-item">
+                            <label>總手續費</label>
+                            <span id="totalFees">$0</span>
+                        </div>
+                    </div>
+                    <canvas id="performanceChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <small class="text-muted">數據來源：Yahoo Finance</small>
+    <script src="script.js"></script>
+</body>
+</html> 
