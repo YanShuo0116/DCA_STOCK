@@ -12,7 +12,7 @@
 
 ## 使用方法
 
-1. 訪問網站：[https://yanshuo0116.github.io/DCAstock/](https://yanshuo0116.github.io/DCAstock/)
+1. 訪問網站：[https://yanshuo0116.github.io/DCAstock/](https://yanshuo0116.github.io/DCA_STOCK/)
 2. 從列表中選擇想要分析的股票
 3. 設定投資參數：
    - 投資起始日期
