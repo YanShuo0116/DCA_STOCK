@@ -39,7 +39,10 @@ jobs:
 
     - name: Commit and push if changed
       run: |
+        git add stock_data/*.json
+        git stash
         git pull --rebase origin main
+        git stash pop
         git add stock_data/*.json
         git diff --staged --quiet || (git commit -m "chore: 更新股票數據 [skip ci]" && git push --force origin main)
 
