@@ -980,5 +980,30 @@
         "Super Micro Computer Inc.",
         "ACM Research, Inc."
       ]
-    }
+    },
+    "VWO": {
+    "name": "Vanguard FTSE Emerging Markets ETF",
+    "chinese_name": "Vanguard FTSE新興市場ETF",
+    "icon": "https://logo.clearbit.com/vanguard.com",
+    "description": "追蹤FTSE Emerging Markets All Cap China A Inclusion Index，投資於新興市場股票。",
+    "sector": "ETF",
+    "industry": "新興市場指數",
+    "founded": "2005年3月4日",
+    "ipo_date": "2005-03-04",
+    "headquarters": "美國賓夕法尼亞州",
+    "ceo": "Tim Buckley",
+    "employees": "17,600+",
+    "key_products": ["新興市場指數追蹤"],
+    "key_services": ["指數化投資", "被動式管理", "新興市場投資"],
+    "category": "新興市場",
+    "expense_ratio": "0.08%",
+    "inception_date": "2005-03-04",
+    "issuer": "Vanguard",
+    "index": "FTSE Emerging Markets All Cap China A Inclusion Index",
+    "holdings": [
+      "Taiwan Semiconductor Manufacturing Co Ltd",
+      "Tencent Holdings Ltd",
+      "Alibaba Group Holding Ltd"
+    ]
+  }
 }
