@@ -38,7 +38,7 @@
 
 1. 克隆專案：
 ```bash
-git clone https://github.com/YanShuo0116/DCAstock.git
+git clone https://github.com/YanShuo0116/DCA_STOCK.git
 ```
 
 2. 安裝依賴：
