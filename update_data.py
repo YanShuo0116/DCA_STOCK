@@ -20,13 +20,13 @@ def load_companies():
 
 def get_full_history_data(symbol, ipo_date):
     """
-    獲取股票從上市日期開始的完整歷史數據
+    獲取股票的完整歷史數據
     """
     try:
         stock = yf.Ticker(symbol)
         
-        # 從上市日期開始獲取數據
-        df = stock.history(start=ipo_date)
+        # 獲取所有可用的歷史數據
+        df = stock.history(period="max")
         
         if df.empty:
             return {}
